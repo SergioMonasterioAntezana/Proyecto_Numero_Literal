@@ -239,7 +239,133 @@ namespace WebNumeroLiteral.Controllers
 
 
 
-        
+        [HttpPost]
+        public string ConversionPost([FromHeader] string num)
+        {
+            string respuesta = "";
+
+            if (num.Length > 7)
+            { return "Numero muy grande"; }
+            if (num.Length == 0)
+            { return "Vacio"; }
+            if (num.Length == 7)
+            {
+                respuesta += Millon(num[0]);
+                respuesta += Centena(num[1]);
+                respuesta += Decena(num[2]);
+                if (num[2] != '0')
+                { respuesta += " y"; }
+                respuesta += Unidad(num[3]);
+                if (num[1] != '0' || num[2] != '0' || num[3] != '0')
+                {
+                    respuesta += " mil ";
+                }
+
+                respuesta += Centena(num[4]);
+                respuesta += Decena(num[5]);
+                if (num[6] != '0')
+                { respuesta += " y "; }
+                respuesta += Unidad(num[6]);
+
+
+            }
+
+            if (num.Length == 6)
+            {
+
+                respuesta += Centena(num[0]);
+                respuesta += Decena(num[1]);
+                if (num[1] != '0')
+                { respuesta += "y "; }
+                respuesta += Unidad(num[2]);
+                if (num[0] != '0' || num[1] != '0' || num[2] != '0')
+                {
+                    respuesta += " mil ";
+                }
+
+                respuesta += Centena(num[3]);
+                respuesta += Decena(num[4]);
+                if (num[5] != '0')
+                { respuesta += " y"; }
+                respuesta += Unidad(num[5]);
+
+
+            }
+
+            if (num.Length == 5)
+            {
+
+
+                respuesta += Decena(num[0]);
+                if (num[0] != '0')
+                { respuesta += "y "; }
+                respuesta += Unidad(num[1]);
+                if (num[0] != '0' || num[1] != '0')
+                {
+                    respuesta += " mil ";
+                }
+
+                respuesta += Centena(num[2]);
+                respuesta += Decena(num[3]);
+                if (num[4] != '0')
+                { respuesta += " y"; }
+                respuesta += Unidad(num[4]);
+
+
+            }
+
+            if (num.Length == 4)
+            {
+
+                respuesta += Unidad(num[0]);
+                if (num[0] != '0')
+                {
+                    respuesta += " mil ";
+                }
+
+                respuesta += Centena(num[1]);
+                respuesta += Decena(num[2]);
+                if (num[3] != '0')
+                { respuesta += "y "; }
+                respuesta += Unidad(num[3]);
+
+
+            }
+
+
+            if (num.Length == 3)
+            {
+
+                respuesta += Centena(num[0]);
+                respuesta += Decena(num[1]);
+                if (num[2] != '0')
+                { respuesta += "y "; }
+                respuesta += Unidad(num[2]);
+
+
+            }
+
+            if (num.Length == 2)
+            {
+
+                respuesta += Decena(num[0]);
+                if (num[1] != '0')
+                { respuesta += "y "; }
+                respuesta += Unidad(num[1]);
+
+
+            }
+
+            if (num.Length == 1)
+            {
+                respuesta += Unidad(num[0]);
+
+
+            }
+
+
+            return respuesta;
+        }
 
 
 

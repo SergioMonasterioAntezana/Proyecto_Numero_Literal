@@ -26,6 +26,23 @@ namespace NUnitTestNumeroLiteral
             //Assert=Verificación
             Assert.AreEqual(esperado, resultado);
         }
-       
+        [Test]
+        public void TestConversionPost()
+        {
+
+            //Arange=Preparación
+            string num1 = "98";
+            string esperado = "Noventa y Ocho";
+
+            NumeroLiteralController lit = new NumeroLiteralController();
+
+            //Act=Ejecución
+
+            string resultado = lit.ConversionPost(num1);
+
+            //Assert=Verificación
+            Assert.AreEqual(esperado, resultado);
+
+        }
     }
 }
