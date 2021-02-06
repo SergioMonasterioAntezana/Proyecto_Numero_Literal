@@ -97,7 +97,7 @@ namespace WebNumeroLiteral.Controllers
                 respuesta += Centena(num[1]);
                 respuesta += Decena(num[2]);
                 if (num[3] != '0')
-                { respuesta += "y "; }
+                { respuesta += "y"; }
                 respuesta += Unidad(num[3]);
 
 
@@ -110,7 +110,7 @@ namespace WebNumeroLiteral.Controllers
                 respuesta += Centena(num[0]);
                 respuesta += Decena(num[1]);
                 if (num[2] != '0')
-                { respuesta += "y "; }
+                { respuesta += "y"; }
                 respuesta += Unidad(num[2]);
 
 
